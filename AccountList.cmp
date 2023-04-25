@@ -1,0 +1,21 @@
+<aura:component controller="MamacoAccounts" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global">
+    <aura:attribute name="accounts" type="Account[]" />
+    <!-- When use helper? -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <lightning:datatable data="{!v.Accounts}" Columns="{!v.columns}"
+                         keyField="Id" hideCheckboxColumn="false"/>
+    <lightning:card iconName="standard:account"
+                    title="Account List">
+        <div class="slds-p-arround_medium">
+            <!--For to access information-->
+            <aura:iteration items="{!v.accounts}" var="accounts">
+                <!--For-->
+                <p>__________________________________</p> 
+                <p>{!accounts.Name}</p>
+                <p>{!accounts.CreatedDate}</p>
+            </aura:iteration>
+        </div><br/>
+        
+    </lightning:card>
+    
+</aura:component>
